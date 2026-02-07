@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novatra Focus | Weekly Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f4fafa] min-h-screen flex items-center justify-center p-4">
+
+    <div class="todo-card w-full max-w-xl bg-white/90 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl border border-white p-6 md:p-10">
+        
+        <header class="mb-8 flex justify-between items-start">
+            <div>
+                <h1 class="text-3xl font-extrabold text-teal-950 tracking-tight">Weekly Focus</h1>
+                <p class="text-teal-600/70 font-medium mt-1">Managed by Novatra Tech</p>
+            </div>
+            <div class="text-right">
+                <span id="current-date" class="block text-sm font-bold text-teal-800 bg-teal-50 px-4 py-2 rounded-2xl"></span>
+            </div>
+        </header>
+
+        <div class="mb-8 bg-white p-5 rounded-[1.5rem] shadow-sm border border-teal-50">
+            <div class="flex justify-between text-xs font-black text-teal-900 mb-3 uppercase tracking-widest">
+                <span>Daily Completion</span>
+                <span id="progress-percent">0%</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3">
+                <div id="progress-bar" class="bg-gradient-to-r from-teal-400 to-teal-600 h-3 rounded-full transition-all duration-700 shadow-md shadow-teal-200" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="flex justify-between gap-2 mb-8 overflow-x-auto pb-2 custom-scrollbar">
+            <button onclick="changeDay('Mon')" class="day-btn active">MON</button>
+            <button onclick="changeDay('Tue')" class="day-btn">TUE</button>
+            <button onclick="changeDay('Wed')" class="day-btn">WED</button>
+            <button onclick="changeDay('Thu')" class="day-btn">THU</button>
+            <button onclick="changeDay('Fri')" class="day-btn">FRI</button>
+            <button onclick="changeDay('Sat')" class="day-btn">SAT</button>
+            <button onclick="changeDay('Sun')" class="day-btn">SUN</button>
+        </div>
+
+        <div class="relative mb-8 group">
+            <input type="text" id="todo-input" placeholder="Set a goal for this day..." 
+                class="w-full bg-slate-50 border-2 border-transparent rounded-2xl px-6 py-5 outline-none focus:border-teal-500 focus:bg-white transition-all pr-16 text-slate-700 font-medium shadow-inner">
+            <button onclick="addTask()" class="absolute right-2 top-2 bottom-2 bg-teal-600 hover:bg-teal-700 text-white w-14 rounded-xl shadow-lg shadow-teal-200 transition-all active:scale-95 flex items-center justify-center">
+                <i class="fa-solid fa-arrow-up text-lg"></i>
+            </button>
+        </div>
+
+        <ul id="todo-list" class="space-y-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+            </ul>
+
+        <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+            <p id="task-count" class="text-slate-400 text-sm font-medium">0 tasks remaining</p>
+            <button onclick="clearDay()" class="text-xs font-bold text-red-400 hover:text-red-600 uppercase tracking-tighter transition-colors">Clear Day</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
